@@ -5,17 +5,17 @@ provider "aws" {
 module "criar_instancia_ec2" { #nome que eu escolho
   source = "./modules/ec2-instances"  
   
-  instance_count = 2
-  ami_id         = "ami-0a0d9cf81c479446a"
-  instance_type  = "t2.micro"
-  subnet_id      = "subnet-040dd137a1f8295aa"
+  instance_count = var.instance_count_1
+  ami_id         = var.ami_id_1
+  instance_type  = var.instance_type_1
+  subnet_id      = var.subnet_id_1
 
 }
 
 module "criar_bucket_s3" { #nome que eu escolho
   source      = "./modules/s3-bucket"
 
-  bucket_name = "meu_primeiro_bucket_885279009678"
-  tags        = {"Bucket" = "Arnon"}
+  bucket_name = var.bucket_name_1
+  tags        = var.tags_1
 
 }
